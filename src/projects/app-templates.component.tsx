@@ -1,28 +1,14 @@
 import React from 'react';
-
-export interface TemplateLayoutProps {
-  id: number;
-  title: string;
-  details?: string;
-}
-
-export const templateLayoutComponents: TemplateLayoutProps[] = [
-  {
-    id: 1,
-    title: 'Crypto',
-    details: 'New Crypto Template',
-  },
-];
+import ApplicationTemplates from './templates.component';
 
 export default function AppTemplatesLayout() {
+  const layoutWrapper = 'flex flex-col justify-center items-center gap-5';
+  const title = 'text-primary-1 font-bold self-center mt-6 text-2xl';
+
   return (
-    <>
-      <h1>Select a project template to navigate</h1>;
-      {templateLayoutComponents.map((templateComponent, index) => {
-        <ol>
-          <li key={index}>{templateComponent.title}</li>;
-        </ol>;
-      })}
-    </>
+    <div className={layoutWrapper}>
+      <h1 className={title}>Select a project template to navigate</h1>
+      <ApplicationTemplates />
+    </div>
   );
 }
