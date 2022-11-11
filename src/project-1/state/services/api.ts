@@ -1,4 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createCryptoElement } from '../../components/crypto-component-functions';
+import { CryptoCoinDataResult } from '../../components/crypto-component-interfaces';
 
 const baseQuery = fetchBaseQuery({
   baseUrl: `https://data.messari.io/api/v1`,
@@ -14,6 +16,9 @@ export const api = createApi({
   endpoints: (builder) => ({
     cryptoList: builder.query({
       query: () => `/assets/btc/metrics`,
+      transformResponse: (result: CryptoCoinDataResult) => {
+        return createCryptoElement(result);
+      },
       providesTags: ['Crypto'],
     }),
   }),
