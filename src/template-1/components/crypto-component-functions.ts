@@ -20,17 +20,20 @@ export function createCryptoElement(cryptoCoinResult: CryptoCoinDataResult) {
 }
 
 /**
- * Create a crypto coins list with the ones fetched from API and crypto coins added by user
+ * Create a crypto coins list with `bitcoin` crypto fetched from API and crypto coins added by user
  * @param bitcoinCrypto bitcoin crypto result fetched from API
  * @param crypto new crypto coin created by user
  * @returns total crypto coins list
  */
 export function createCryptoCoinsList(bitcoinCrypto?: CryptoCoin, crypto?: CryptoCoin) {
   let cryptoCoinsList: CryptoCoin[] = [];
+
+  // There might be cases where `bitcoinCrypto` (data fetched from API) might be undefiend
   if (bitcoinCrypto) {
     cryptoCoinsList.push(bitcoinCrypto);
   }
 
+  // Every new crypto coin added by user should be pushed into `cryptoCoinsList`
   if (crypto) {
     cryptoCoinsList.push(crypto);
   }

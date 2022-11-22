@@ -1,6 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit';
-import cryptoSlice from './slices/crypto';
-import { api } from './services/api';
+import cryptoSlice from '../../template-1/state/slices/crypto';
+import { api } from '../../template-1/state/services/api';
 
 export const store = configureStore({
   reducer: {

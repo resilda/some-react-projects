@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import CryptoListLayout from './project-1/components/crypto-list-layout.component';
-import AppTemplatesLayout from './projects/app-templates.component';
+import CryptoListLayout from './template-1/components/crypto-list-layout.component';
+import AppTemplatesLayout from './application-templates/app-templates.component';
 
 function App() {
   return (

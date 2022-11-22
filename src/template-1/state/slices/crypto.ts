@@ -1,8 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { CryptoCoin } from '../../components/crypto-component-interfaces';
 import { RootState } from '../store';
 
 export interface ICryptoList {
-  cryptoList: Array<any>;
+  cryptoList: Array<CryptoCoin>;
 }
 
 const initialState: ICryptoList = {

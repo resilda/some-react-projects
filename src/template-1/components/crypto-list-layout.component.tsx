@@ -5,6 +5,7 @@ import { CryptoCoin } from './crypto-component-interfaces';
 
 export default function CryptoListLayout() {
   const [cryptoCoinsList, setCryptoCoinsList] = useState<CryptoCoin[]>();
+  const [addNewCoinModalVisible, setAddNewCoinModalVisible] = useState<boolean>(false);
   const [newCryptoCoin, setNewCryptoCoin] = useState<CryptoCoin>();
   const { bitcoinCrypto, isBitcoinCryptoLoading, isBitcoinCryptoFetching } = useFetchBitcoinCrypto();
 
@@ -12,6 +13,10 @@ export default function CryptoListLayout() {
     if (!isBitcoinCryptoLoading && !isBitcoinCryptoFetching)
       setCryptoCoinsList(createCryptoCoinsList(bitcoinCrypto, newCryptoCoin));
   }, [bitcoinCrypto, newCryptoCoin, isBitcoinCryptoLoading, isBitcoinCryptoFetching]);
+
+  function handleAddNewCoinModalOpen() {
+    setAddNewCoinModalVisible(true);
+  }
 
   const layoutWrapper = 'flex flex-col justify-center items-center gap-5';
   const title = 'text-primary-1 font-bold self-center mt-6 text-2xl';
@@ -36,7 +41,10 @@ export default function CryptoListLayout() {
               );
             })}
           </div>
-          <p className="hover:text-primary-1 cursor-pointer">+ Add new crypto coin</p>
+          <p className="hover:text-primary-3 cursor-pointer" onClick={() => handleAddNewCoinModalOpen()}>
+            + Add new crypto coin
+          </p>
+          {addNewCoinModalVisible && <div>New CryptoCoin modal</div>}
         </>
       )}
     </div>

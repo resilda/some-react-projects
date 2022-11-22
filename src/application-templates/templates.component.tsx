@@ -4,28 +4,33 @@ import { Link } from 'react-router-dom';
 export interface TemplateLayoutProps {
   id: number;
   title: string;
+  slug: string;
   details?: string;
 }
 
 export const templateLayoutComponents: TemplateLayoutProps[] = [
   {
     id: 1,
-    title: 'crypto',
+    title: 'Crypto',
+    slug: 'crypto',
     details: 'New Crypto Template',
   },
   {
     id: 2,
-    title: 'another template',
+    title: 'Jobs Available',
+    slug: 'jobsAvailable',
     details: 'Another template description',
   },
   {
     id: 3,
-    title: 'another template',
+    title: 'Template',
+    slug: 'template1',
     details: 'Another template description',
   },
   {
     id: 4,
-    title: 'another template',
+    title: 'Template',
+    slug: 'template2',
     details: 'Another template description',
   },
 ];
@@ -38,7 +43,7 @@ export default function ApplicationTemplates() {
     <div className="flex flex-wrap gap-x-4">
       {templateLayoutComponents.map((templateComponent) => {
         return (
-          <Link to={`/${templateComponent.title}`}>
+          <Link to={`/${templateComponent.slug}`}>
             <div key={templateComponent.id} className={templateWrapper}>
               <h3>{templateComponent.title.toUpperCase()}</h3>
               <p>{templateComponent.details}</p>
