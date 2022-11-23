@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import useFetchBitcoinCrypto from '../hooks/useFetchBitcoinCrypto';
+import AddNewCryptoCoinModal from './add-new-crypto-coin/add-new-crypto-coin-modal';
 import { createCryptoCoinsList } from './crypto-component-functions';
 import { CryptoCoin } from './crypto-component-interfaces';
 
@@ -44,7 +45,7 @@ export default function CryptoListLayout() {
           <p className="hover:text-primary-3 cursor-pointer" onClick={() => handleAddNewCoinModalOpen()}>
             + Add new crypto coin
           </p>
-          {addNewCoinModalVisible && <div>New CryptoCoin modal</div>}
+          {addNewCoinModalVisible && <AddNewCryptoCoinModal />}
         </>
       )}
     </div>
