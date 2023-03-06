@@ -17,9 +17,9 @@ export const templateLayoutComponents: TemplateLayoutProps[] = [
   },
   {
     id: 2,
-    title: 'Jobs Available',
-    slug: 'jobsAvailable',
-    details: 'Another template description',
+    title: 'Exercises',
+    slug: 'exercises',
+    details: 'React exercises for mid level',
   },
   {
     id: 3,
